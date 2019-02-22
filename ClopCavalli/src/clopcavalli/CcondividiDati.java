@@ -68,7 +68,7 @@ public class CcondividiDati {
      *
      * Metodo che aumenta di 1 ogni volta che il cavallo compie un passo.
      */
-    public void setC1() {
+    public synchronized void setC1() {
         c1++;
     }
 
@@ -79,7 +79,7 @@ public class CcondividiDati {
      *
      * Metodo che aumenta di 1 ogni volta che il cavallo compie un passo.
      */
-    public void setC2() {
+    public synchronized void setC2() {
         c2++;
     }
 
@@ -90,7 +90,7 @@ public class CcondividiDati {
      *
      * Metodo che aumenta di 1 ogni volta che il cavallo compie un passo.
      */
-    public void setC3() {
+    public synchronized void setC3() {
         c3++;
     }
 
@@ -101,7 +101,7 @@ public class CcondividiDati {
      *
      * Metodo che aumenta di 1 ogni volta che il cavallo compie un passo.
      */
-    public void setC4() {
+    public synchronized void setC4() {
         c4++;
     }
 
@@ -112,7 +112,7 @@ public class CcondividiDati {
      *
      * Metodo che aumenta di 1 ogni volta che il cavallo compie un passo.
      */
-    public void setC5() {
+    public synchronized void setC5() {
         c5++;
     }
 
@@ -123,7 +123,7 @@ public class CcondividiDati {
      *
      * @return Variabile che rappresenta il numero di passi del cavallo.
      */
-    public int getC1() {
+    public synchronized int getC1() {
         return c1;
     }
 
@@ -134,7 +134,7 @@ public class CcondividiDati {
      *
      * @return Variabile che rappresenta il numero di passi del cavallo.
      */
-    public int getC2() {
+    public synchronized int getC2() {
         return c2;
     }
 
@@ -145,7 +145,7 @@ public class CcondividiDati {
      *
      * @return Variabile che rappresenta il numero di passi del cavallo.
      */
-    public int getC3() {
+    public synchronized int getC3() {
         return c3;
     }
 
@@ -156,7 +156,7 @@ public class CcondividiDati {
      *
      * @return Variabile che rappresenta il numero di passi del cavallo.
      */
-    public int getC4() {
+    public synchronized int getC4() {
         return c4;
     }
 
@@ -167,7 +167,7 @@ public class CcondividiDati {
      *
      * @return Variabile che rappresenta il numero di passi del cavallo.
      */
-    public int getC5() {
+    public synchronized int getC5() {
         return c5;
     }
 
