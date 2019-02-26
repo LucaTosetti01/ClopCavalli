@@ -42,11 +42,16 @@ public class ClopCavalli {
             th5.start();
             th6.start();
 
-            th.join();
-            th2.join();
-            th3.join();
-            th4.join();
-            th5.join();
+            c.WaitClop1();
+            c.WaitClop2();
+            c.WaitClop3();
+            c.WaitClop4();
+            c.WaitClop5();
+            //th.join();
+            //th2.join();
+            //th3.join();
+            //th4.join();
+            //th5.join();
             th6.interrupt();
 
             System.out.println("Programma terminato.");

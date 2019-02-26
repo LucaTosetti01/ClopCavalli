@@ -115,6 +115,22 @@ public class ThCavallo extends Thread {
                     sem1.Signal();
                 }
             }
+
+            if (pos == 1) {
+                ptr.SignalClop1();
+            }
+            if (pos == 2) {
+                ptr.SignalClop2();
+            }
+            if (pos == 3) {
+                ptr.SignalClop3();
+            }
+            if (pos == 4) {
+                ptr.SignalClop4();
+            }
+            if (pos == 5) {
+                ptr.SignalClop5();
+            }
         } catch (Exception e) {
 
         }

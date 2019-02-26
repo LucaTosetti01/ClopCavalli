@@ -5,6 +5,8 @@
  */
 package clopcavalli;
 
+import java.util.concurrent.Semaphore;
+
 /**
  *
  * @author Christian
@@ -53,14 +55,67 @@ public class CcondividiDati {
      *
      * Metodo che inizializza le variabili c1,c2,c3,c4,c5 a 0.
      */
+    
+    private Semaphore semClop1;
+    private Semaphore semClop2;
+    private Semaphore semClop3;
+    private Semaphore semClop4;
+    private Semaphore semClop5;
+    
     public CcondividiDati() {
         this.c1 = 0;
         this.c2 = 0;
         this.c3 = 0;
         this.c4 = 0;
         this.c5 = 0;
+        semClop1 = new Semaphore(0);
+        semClop2 = new Semaphore(0);
+        semClop3 = new Semaphore(0);
+        semClop4 = new Semaphore(0);
+        semClop5 = new Semaphore(0);
+        
     }
-
+    
+    
+    public void WaitClop1() throws InterruptedException {
+        semClop1.acquire();
+    }
+    
+    public void WaitClop2() throws InterruptedException {
+        semClop2.acquire();
+    }
+    
+    public void WaitClop3() throws InterruptedException {
+        semClop3.acquire();
+    }
+    
+    public void WaitClop4() throws InterruptedException {
+        semClop4.acquire();
+    }
+    
+    public void WaitClop5() throws InterruptedException {
+        semClop5.acquire();
+    }
+    
+    public void SignalClop1() {
+        semClop1.release();
+    }
+    
+    public void SignalClop2() {
+        semClop2.release();
+    }
+    
+    public void SignalClop3() {
+        semClop3.release();
+    }
+    
+    public void SignalClop4() {
+        semClop4.release();
+    }
+    
+    public void SignalClop5() {
+        semClop5.release();
+    }
     /**
      * @author Christian Sipione
      *
