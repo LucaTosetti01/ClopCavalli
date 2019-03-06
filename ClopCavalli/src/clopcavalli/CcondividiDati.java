@@ -56,11 +56,18 @@ public class CcondividiDati {
      * Metodo che inizializza le variabili c1,c2,c3,c4,c5 a 0.
      */
     
+    int vincitore;
+    
     private Semaphore semClop1;
     private Semaphore semClop2;
     private Semaphore semClop3;
     private Semaphore semClop4;
     private Semaphore semClop5;
+    
+    private Semaphore semVisualizza1;
+    private Semaphore semVisualizza2;
+    private Semaphore semCorsaFinita;
+    
     
     public CcondividiDati() {
         this.c1 = 0;
@@ -74,8 +81,35 @@ public class CcondividiDati {
         semClop4 = new Semaphore(0);
         semClop5 = new Semaphore(0);
         
+        semVisualizza1 = new Semaphore(0);
+        semVisualizza2 = new Semaphore(1);
+        
+        semCorsaFinita=new Semaphore(0);
+        
+        vincitore=0;
+        
     }
     
+    public int getVincitore() {
+        return vincitore;
+    }
+    
+    public void setVincitore(int vincitore) {
+        this.vincitore=vincitore;
+    }
+    public void WaitCorsaFinita() throws InterruptedException {
+        semCorsaFinita.acquire();
+    }
+    
+    
+    
+    public void WaitVisualizza1() throws InterruptedException {
+        semVisualizza1.acquire();
+    }
+    
+    public void WaitVisualizza2() throws InterruptedException {
+        semVisualizza2.acquire();
+    }
     
     public void WaitClop1() throws InterruptedException {
         semClop1.acquire();
@@ -95,6 +129,18 @@ public class CcondividiDati {
     
     public void WaitClop5() throws InterruptedException {
         semClop5.acquire();
+    }
+    
+    public void SignalCorsaFinita() {
+        semCorsaFinita.release();
+    }
+    
+    public void SignalVisualizza1() throws InterruptedException {
+        semVisualizza1.release();
+    }
+    
+    public void SignalVisualizza2() throws InterruptedException {
+        semVisualizza2.release();
     }
     
     public void SignalClop1() {
