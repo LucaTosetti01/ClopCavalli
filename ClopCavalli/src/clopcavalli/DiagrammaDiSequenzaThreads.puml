@@ -1,0 +1,113 @@
+@startuml
+actor Utente
+participant main
+entity ThClop1
+entity ThClop2
+entity ThClop3
+entity ThClop4
+entity ThClop5
+entity ThVisualizza
+entity DatiCondivisi
+entity Semaforo
+
+Utente -> main ++ : start
+
+main -> Semaforo ** : new
+main -> DatiCondivisi ** : new
+main -> ThClop1 ** : new
+main -> ThClop2 ** : new
+main -> ThClop3 ** : new
+main -> ThClop4 ** : new
+main -> ThClop5 ** : new
+main -> ThVisualizza ** : new
+
+main -> ThClop1 ++ : start
+main -> ThClop2 ++ : start
+main -> ThClop3 ++ : start
+main -> ThClop4 ++ : start
+main -> ThClop5 ++ : start
+main -> ThVisualizza ++ : start
+
+
+
+ThVisualizza -> DatiCondivisi : ptr.WaitVisualizza1()
+
+ThClop1 -> DatiCondivisi : ptr.WaitVisualizza2()
+ThClop1 -> Utente : Output cavallo
+ThClop1 -> DatiCondivisi : ptr.setC1()
+ThClop1 -> DatiCondivisi : ptr.SignalVisualizza1()
+
+ThVisualizza -> Utente : Output clop cavalli
+ThVisualizza -> DatiCondivisi : ptr.SignalVisualizza2()
+
+
+
+
+
+ThVisualizza -> DatiCondivisi : ptr.WaitVisualizza1()
+
+ThClop2 -> DatiCondivisi : ptr.WaitVisualizza2()
+ThClop2 -> Utente : Output cavallo
+ThClop2 -> DatiCondivisi : ptr.setC2()
+ThClop2 -> DatiCondivisi : ptr.SignalVisualizza1()
+
+ThVisualizza -> Utente : Output clop cavalli
+ThVisualizza -> DatiCondivisi : ptr.SignalVisualizza2()
+
+
+
+
+ThVisualizza -> DatiCondivisi : ptr.WaitVisualizza1()
+
+ThClop3 -> DatiCondivisi : ptr.WaitVisualizza2()
+ThClop3 -> Utente : Output cavallo
+ThClop3 -> DatiCondivisi : ptr.setC3()
+ThClop3 -> DatiCondivisi : ptr.SignalVisualizza1()
+
+ThVisualizza -> Utente : Output clop cavalli
+ThVisualizza -> DatiCondivisi : ptr.SignalVisualizza2()
+
+
+
+
+
+ThVisualizza -> DatiCondivisi : ptr.WaitVisualizza1()
+
+ThClop4 -> DatiCondivisi : ptr.WaitVisualizza2()
+ThClop4 -> Utente : Output cavallo
+ThClop4 -> DatiCondivisi : ptr.setC4()
+ThClop4 -> DatiCondivisi : ptr.SignalVisualizza1()
+
+ThVisualizza -> Utente : Output clop cavalli
+ThVisualizza -> DatiCondivisi : ptr.SignalVisualizza2()
+
+
+
+
+ThVisualizza -> DatiCondivisi : ptr.WaitVisualizza1()
+
+ThClop5 -> DatiCondivisi : ptr.WaitVisualizza2()
+ThClop5 -> Utente : Output cavallo
+ThClop5 -> DatiCondivisi : ptr.setC5()
+ThClop5 -> DatiCondivisi : ptr.SignalVisualizza1()
+
+ThVisualizza -> Utente : Output clop cavalli
+ThVisualizza -> DatiCondivisi : ptr.SignalVisualizza2()
+
+
+
+Note over ThClop3 : I thread continuano fino a quando uno non raggiunge 50 clop
+Note over ThClop4 : 50 clop
+
+ThClop4 -> DatiCondivisi : ptr.SignalCorsaFinita()
+ThClop4 -> DatiCondivisi : ptr.setVincitore(pos)           
+
+ThClop1 -> main -- : interrupt
+ThClop2 -> main -- : interrupt
+ThClop3 -> main -- : interrupt
+ThClop4 -> main -- : interrupt
+ThClop5 -> main -- : interrupt
+ThVisualizza -> main -- : interrupt
+
+main -> Utente -- : Programma terminato
+@enduml
